@@ -1,0 +1,98 @@
+body {
+      margin: 0;
+      padding: 40px;
+      background-color: #2c2c2c;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      position: relative;
+      width: 400px;
+      height: 300px;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      box-sizing: border-box;
+      background-color: rgba(0, 0, 0, 0.3);
+      transition: background-color 0.3s ease;
+    }
+
+    .title {
+      font-size: 24px;
+      letter-spacing: 1px;
+    }
+
+    .title span {
+      font-weight: bold;
+    }
+
+    .line {
+      width: 80%;
+      height: 2px;
+      background-color: white;
+      margin: 20px 0;
+      opacity: 1;
+      transition: opacity 0.3s ease;
+    }
+
+    .desc {
+      font-size: 15px;
+      max-width: 90%;
+    }
+
+    /* Overlay lines on hover */
+    .card::before,
+    .card::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: none;
+      border: 2px solid rgba(255, 255, 255, 0.5);
+      transform: rotate(0deg);
+      opacity: 0;
+      transition: all 0.4s ease-in-out;
+      z-index: 1;
+    }
+
+    .card:hover::before {
+      transform: rotate(45deg);
+      opacity: 1;
+    }
+
+    .card:hover::after {
+      transform: rotate(-45deg);
+      opacity: 1;
+    }
+
+    .card:hover .content {
+      background-color: rgba(0, 0, 0, 0.6);
+    }
